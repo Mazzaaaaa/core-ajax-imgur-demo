@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+  <head>
+
+  <!-- Remember to set the clientId in app.js -->
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>core-ajax-imgur-demo</title>
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <link rel="import" href="components.html">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/app.css">
+
+  </head>
+
+  <body fullbleed unresolved>
+
+    <template is="auto-binding" id="app">
+
+      <core-ajax-imgur
+        imgId="{{imgId}}"
+        clientId="{{clientId}}"
+        on-core-response="{{handleResponse}}">
+      </core-ajax-imgur>
+
+      <div class="container center-block">
+
+        <h1 class="text-center">core-ajax-imgur</h1>
+        <h5 class="text-center"><a href="https://github.com/Mazzaaaaa/core-ajax-imgur">Source on GitHub</a></h5>
+
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <h4 class="text-center">An extension to the core-ajax component that provides an easier access to the info of an imgur image.</h4> 
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-md-offset-4 col-md-4">
+            <paper-input 
+              id="paperInput"
+              label="Try it yourself, paste here a valid imgur link." 
+              floatingLabel="true" 
+              value="{{imgId}}" 
+              on-input="{{submit}}">
+            </paper-input>   
+            <br/>
+          </div>
+        </div>
+      
+        <div style="text-align: center; height: 30px;">
+          <div style="display: inline-block;">
+            <code hidden?="{{imgId == ''}}">
+              &lt;core-ajax-imgur imgId=<b>"{{imgId}}"</b> clientId=<i>"secret"</i>>&lt;/core-ajax-imgur>
+            </code>
+          </div>
+        </div>
+
+        <div style="text-align: center">
+          <div style="display: inline-block; width: 500px; height: 400px;">
+            <core-image 
+              id="coreImg" 
+              sizing="crop"
+              preload
+              fade
+              src="{{imgSrc}}">
+            </core-image>  
+            <br/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+            <div id="headingJson" onclick="document.querySelector('#collapse1').toggle();">Click here for the JSON response from imgur.</div>
+            <core-collapse id="collapse1">
+                <pre hidden?="{{jsonResponse == ''}}">{{jsonResponse}}</pre>
+            </core-collapse>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div id="about" class="col-md-offset-4 col-md-4">
+            To use core-ajax-imgur you must provide it with:<br/> 
+            - A valid imgur client ID (read more about it <a href="https://api.imgur.com/">here</a>); <br/>
+            - A valid link to an image hosted on imgur. <br/>
+             <br/>
+            The following pattern for the image link can be used:<br/>
+            - Direct URL, ex: <i>http://i.imgur.com/NPHdTZl.jpg</i><br/>
+            - Short URL, ex: <i>http://imgur.com/zqLZYZr</i><br/>
+            - Album URL, ex: <i>http://imgur.com/a/szz8j</i><br/>
+            - Gallery URL, ex: <i>http://imgur.com/gallery/Nubk9vB</i><br/>
+             <br/>  
+             </div>
+
+          <div class="col-md-offset-3 col-md-6">
+            Being an extension of core-ajax means that every standard code-ajax attribute can also be declared. <br/>
+            Take a look at the <a href="https://www.polymer-project.org/0.5/docs/elements/core-ajax.html">core-ajax component page</a> for more informations.
+          </div>  
+        </div> 
+
+        <div class="row">
+          <div class="col-md-offset-3 col-md-6 separator"></div>
+        </div>
+
+        <div class="row" id="footer">
+          <div class="col-md-offset-4 col-md-4">
+            Mazzarolo Matteo - Source and more info on <a href="https://github.com/Mazzaaaaa/core-ajax-imgur">GitHub</a>. 
+          </div>
+        </div>
+
+      </div>
+
+      </template>
+
+  </body>
+
+  <script src="scripts/app.js"></script>
+
+</html>

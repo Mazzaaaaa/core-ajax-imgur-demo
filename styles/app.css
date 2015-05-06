@@ -1,0 +1,65 @@
+body {
+  font-family: "RobotoDraft",Helvetica,Arial,sans-serif;
+  color: #222;
+}
+
+pre {
+  text-align: left;
+}
+
+code {
+  font-family: "RobotoDraft",Helvetica,Arial,sans-serif;
+  color: #337ab7;
+  border: 1px solid gainsboro;
+  -webkit-animation: fadein 0.5s ease-in alternate ;
+  -moz-animation: fadein 0.5s ease-in alternate ;
+  animation: fadein 0.5s ease-in alternate ;
+}
+
+#paperInput {
+  width: 100%;
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#coreImg {
+  width: 100%;
+  height: 100%;
+  border: 1px solid gainsboro;
+  background-color: lightgray;
+}
+
+#about {
+  margin-top: 35px;
+}
+
+#headingJson {
+  margin: 15px;
+  padding: 5px 10px;
+  background-color: #f3f3f3;
+  border: 1px solid #dedede;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  text-align: center;
+}
+
+.separator {
+  border: solid #ddd;
+  border-width: 1px 0 0;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
